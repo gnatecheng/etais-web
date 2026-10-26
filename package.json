@@ -1,0 +1,25 @@
+{
+  "name": "etais-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "etais.dev marketing site (Cloudflare Worker + static assets)",
+  "homepage": "https://etais.dev",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "build:site": "node scripts/build-site.mjs",
+    "check:cache-versions": "node scripts/check-site-cache-versions.mjs",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "test:access-log-paths": "node scripts/test-access-log-paths.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.52.0",
+    "sharp": "^0.34.2",
+    "wrangler": "^4.24.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

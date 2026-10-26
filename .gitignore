@@ -1,0 +1,11 @@
+.DS_Store
+/node_modules
+npm-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+/tmp
+.wrangler/
+.dev.vars
+*.local
+.env
+.env.*
