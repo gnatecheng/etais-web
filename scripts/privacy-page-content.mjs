@@ -4,7 +4,7 @@ import { PUBLIC_CONTACT_EMAIL, PUBLIC_CONTACT_MAILTO } from "./site-contact.mjs"
 
 export const privacyBodyZh = `
 <p class="privacy-lead"><strong>一句话说明：</strong>这三个应用都是<strong>离线、无账号、无服务器</strong>的工具。默认不收集、不上传你的个人信息。数据只存在你手机本机；只有你主动导出、分享或备份时，文件才会离开手机。</p>
-<p><strong>生效日期：</strong>2026-10-13 · <strong>发布者：</strong>Ch Etang（Etai 应用集）</p>
+<p><strong>生效日期：</strong>2026-10-27 · <strong>发布者：</strong>Ch Etang（Etai 应用集）</p>
 <h3>我们是谁</h3>
 <p>Etai 应用集是个人开发者发布的开源 Android 应用集合。官网：<a href="https://etais.dev/">https://etais.dev/</a>。开源代码见 GitHub 上的 C一周通、轻记账、团团记仓库。</p>
 <h3>我们处理哪些数据</h3>
@@ -22,13 +22,20 @@ export const privacyBodyZh = `
   <li>不要求注册或登录</li>
   <li>不收集姓名、手机号、邮箱、身份证等身份信息</li>
   <li>不接入广告 SDK、统计分析 SDK、崩溃上报 SDK（以各版本 AndroidManifest 与依赖为准）</li>
-  <li>三个应用<strong>都不会</strong>把账本、学习进度等数据上传到我们的服务器；日常使用<strong>不需要联网</strong>。</li>
+  <li>三个应用<strong>都不会</strong>把账本、学习进度等数据上传到我们的服务器；日常使用<strong>不需要联网</strong>（设置里你主动点「检查更新」时除外，见下文）。</li>
 </ul>
-<h3>安装时系统显示的权限（正式版合并清单）</h3>
-<p>下列说明依据各应用当前 Play / 酷安就绪分支的<strong>正式版合并安装清单</strong>（你在安装界面看到的列表）。除特别说明外，不含联网、相机、读取相册等权限。</p>
+<h4>4. 检查更新（可选，仅在你主动操作时）</h4>
+<p>应用<strong>不会在每次启动时自动联网</strong>。只有当你在<strong>设置</strong>中点击「<strong>检查更新</strong>」时，才可能访问网络：</p>
 <ul>
-  <li><strong>轻记账：</strong>安装列表<strong>只有</strong>一项与 App 签名绑定的系统内部权限（Android 用来注册应用内组件，对用户不可见、不可拒绝）。<strong>没有</strong>联网、相机或存储类权限。收据照片由你在<strong>系统拍照或选图界面</strong>里主动添加。</li>
-  <li><strong>团团记：</strong>与轻记账相同——<strong>只有</strong>那一项签名相关的内部权限，没有联网、相机等。</li>
+  <li><strong>侧载 / 官网 APK 等渠道安装的版本：</strong>可能向 <a href="https://dl.etais.dev/">https://dl.etais.dev/</a> 发起 HTTPS GET，读取公开的版本信息 JSON（例如 <code>c-week-version.json</code>、<code>group-matters-version.json</code>、<code>easy-ledger-version.json</code>），以判断是否有较新版本。这是一次普通的公开信息请求，<strong>不会</strong>发送账号凭证或个人使用数据。</li>
+  <li><strong>从 Google Play 安装的版本：</strong>可能改用 Google Play 的应用内更新 API，由 Google 按其政策处理。</li>
+</ul>
+<p>除上述由你主动触发的检查外，应用仍不会上传账本、学习进度等本机业务数据。</p>
+<h3>安装时系统显示的权限（正式版合并清单）</h3>
+<p>下列说明依据各应用当前 Play / 酷安就绪分支的<strong>正式版合并安装清单</strong>（你在安装界面看到的列表）。除特别说明外，不含相机、读取相册等权限；联网权限（若有）仅用于你在设置中主动「检查更新」时。</p>
+<ul>
+  <li><strong>轻记账：</strong>至少包含一项与 App 签名绑定的系统内部权限（Android 用来注册应用内组件，对用户不可见、不可拒绝）。较新版本若声明「联网」权限，<strong>仅</strong>在你主动「检查更新」时使用；<strong>没有</strong>相机或存储类权限。收据照片由你在<strong>系统拍照或选图界面</strong>里主动添加。</li>
+  <li><strong>团团记：</strong>与轻记账相同——签名相关的内部权限；较新版本若声明「联网」权限，<strong>仅</strong>在你主动「检查更新」时使用；没有相机等。</li>
   <li><strong>C一周通：</strong>除上述内部权限外，还有「<strong>查看网络连接状态</strong>」。它来自内置<strong>视频播放库</strong>，用来判断设备是否联网；<strong>应用本身不会因此上网</strong>，也不会上传你的学习数据。课文与演示视频都在安装包内。</li>
 </ul>
 <h3>儿童与未成年人</h3>
@@ -52,7 +59,7 @@ export const privacyBodyZh = `
 
 export const privacyBodyEn = `
 <p class="privacy-lead"><strong>In one sentence:</strong> These apps are <strong>offline, account-free, and server-free</strong>. By default we do not collect or upload personal information. Data stays on your device; files leave the phone only when you export, share, or back them up yourself.</p>
-<p><strong>Effective date:</strong> 2026-10-13 · <strong>Publisher:</strong> Ch Etang (Etai Apps)</p>
+<p><strong>Effective date:</strong> 2026-10-27 · <strong>Publisher:</strong> Ch Etang (Etai Apps)</p>
 <h3>Who we are</h3>
 <p>Etai Apps is a personal developer’s set of open-source Android apps. Website: <a href="https://etais.dev/en/">https://etais.dev/</a>. Source code is on GitHub (c-week, easy-ledger, group-matters).</p>
 <h3>What data we process</h3>
@@ -70,13 +77,20 @@ export const privacyBodyEn = `
   <li>No sign-up or sign-in</li>
   <li>No identity data such as name, phone number, email, or ID numbers for our services</li>
   <li>No ad SDKs, analytics SDKs, or crash-reporting SDKs (as reflected in each release’s manifest and dependencies)</li>
-  <li>None of the apps upload your ledger or learning data to our servers; normal use does <strong>not</strong> require a network.</li>
+  <li>None of the apps upload your ledger or learning data to our servers; normal use does <strong>not</strong> require a network (except when you choose <strong>Check for updates</strong> in Settings—see below).</li>
 </ul>
-<h3>Permissions shown at install (release merged manifest)</h3>
-<p>Based on each app’s current release merged manifest (what the system shows when you install). Unless noted, there is no Internet, camera, or storage access permission.</p>
+<h4>4. Check for updates (optional, only when you choose)</h4>
+<p>The apps do <strong>not</strong> connect to the network on every launch. They go online only if you tap <strong>Check for updates</strong> in <strong>Settings</strong>:</p>
 <ul>
-  <li><strong>Easy Ledger:</strong> The install list shows <strong>only</strong> one signature-bound internal permission (Android uses it to register in-app components; not something you grant separately). <strong>No</strong> Internet, camera, or storage permissions. Receipt photos are added only when you use the <strong>system camera or photo picker</strong>.</li>
-  <li><strong>Group Matters:</strong> Same as Easy Ledger—<strong>only</strong> that internal signature permission, no Internet or camera.</li>
+  <li><strong>Sideloaded or direct APK builds:</strong> The app may perform an HTTPS GET to <a href="https://dl.etais.dev/">https://dl.etais.dev/</a> to fetch public version metadata JSON (e.g. <code>c-week-version.json</code>, <code>group-matters-version.json</code>, <code>easy-ledger-version.json</code>) and see whether a newer version exists. This is a normal request for public version info; it does <strong>not</strong> send account credentials or personal usage data.</li>
+  <li><strong>Google Play installs:</strong> The app may use Google Play’s in-app update APIs instead, subject to Google’s policies.</li>
+</ul>
+<p>Aside from this user-initiated check, the apps still do not upload your ledger, learning progress, or other on-device data.</p>
+<h3>Permissions shown at install (release merged manifest)</h3>
+<p>Based on each app’s current release merged manifest (what the system shows when you install). Unless noted, there is no camera or storage access permission; any Internet permission is used only when you choose <strong>Check for updates</strong> in Settings.</p>
+<ul>
+  <li><strong>Easy Ledger:</strong> At minimum, one signature-bound internal permission (Android uses it to register in-app components; not something you grant separately). Newer releases that declare Internet use it <strong>only</strong> for the optional update check; <strong>no</strong> camera or storage permissions. Receipt photos are added only when you use the <strong>system camera or photo picker</strong>.</li>
+  <li><strong>Group Matters:</strong> Same as Easy Ledger—the internal signature permission; newer releases that declare Internet use it <strong>only</strong> for the optional update check; no camera.</li>
   <li><strong>C Week:</strong> That internal permission plus <strong>“view network connections”</strong> from the built-in <strong>video player library</strong>, so the player can tell whether the device is online. The app <strong>does not go online</strong> or upload your learning data. Lessons and videos ship inside the install package.</li>
 </ul>
 <h3>Children</h3>
