@@ -52,7 +52,7 @@
           <div class="privacy-prose project-prose">
 
 <p class="privacy-lead"><strong>In one sentence:</strong> These apps are <strong>offline, account-free, and server-free</strong>. By default we do not collect or upload personal information. Data stays on your device; files leave the phone only when you export, share, or back them up yourself.</p>
-<p><strong>Effective date:</strong> 2026-10-13 · <strong>Publisher:</strong> Ch Etang (Etai Apps)</p>
+<p><strong>Effective date:</strong> 2026-10-27 · <strong>Publisher:</strong> Ch Etang (Etai Apps)</p>
 <h3>Who we are</h3>
 <p>Etai Apps is a personal developer’s set of open-source Android apps. Website: <a href="https://etais.dev/en/">https://etais.dev/</a>. Source code is on GitHub (c-week, easy-ledger, group-matters).</p>
 <h3>What data we process</h3>
@@ -70,13 +70,20 @@
   <li>No sign-up or sign-in</li>
   <li>No identity data such as name, phone number, email, or ID numbers for our services</li>
   <li>No ad SDKs, analytics SDKs, or crash-reporting SDKs (as reflected in each release’s manifest and dependencies)</li>
-  <li>None of the apps upload your ledger or learning data to our servers; normal use does <strong>not</strong> require a network.</li>
+  <li>None of the apps upload your ledger or learning data to our servers; normal use does <strong>not</strong> require a network (except when you choose <strong>Check for updates</strong> in Settings—see below).</li>
 </ul>
-<h3>Permissions shown at install (release merged manifest)</h3>
-<p>Based on each app’s current release merged manifest (what the system shows when you install). Unless noted, there is no Internet, camera, or storage access permission.</p>
+<h4>4. Check for updates (optional, only when you choose)</h4>
+<p>The apps do <strong>not</strong> connect to the network on every launch. They go online only if you tap <strong>Check for updates</strong> in <strong>Settings</strong>:</p>
 <ul>
-  <li><strong>Easy Ledger:</strong> The install list shows <strong>only</strong> one signature-bound internal permission (Android uses it to register in-app components; not something you grant separately). <strong>No</strong> Internet, camera, or storage permissions. Receipt photos are added only when you use the <strong>system camera or photo picker</strong>.</li>
-  <li><strong>Group Matters:</strong> Same as Easy Ledger—<strong>only</strong> that internal signature permission, no Internet or camera.</li>
+  <li><strong>Sideloaded or direct APK builds:</strong> The app may perform an HTTPS GET to <a href="https://dl.etais.dev/">https://dl.etais.dev/</a> to fetch public version metadata JSON (e.g. <code>c-week-version.json</code>, <code>group-matters-version.json</code>, <code>easy-ledger-version.json</code>) and see whether a newer version exists. This is a normal request for public version info; it does <strong>not</strong> send account credentials or personal usage data.</li>
+  <li><strong>Google Play installs:</strong> The app may use Google Play’s in-app update APIs instead, subject to Google’s policies.</li>
+</ul>
+<p>Aside from this user-initiated check, the apps still do not upload your ledger, learning progress, or other on-device data.</p>
+<h3>Permissions shown at install (release merged manifest)</h3>
+<p>Based on each app’s current release merged manifest (what the system shows when you install). Unless noted, there is no camera or storage access permission; any Internet permission is used only when you choose <strong>Check for updates</strong> in Settings.</p>
+<ul>
+  <li><strong>Easy Ledger:</strong> At minimum, one signature-bound internal permission (Android uses it to register in-app components; not something you grant separately). Newer releases that declare Internet use it <strong>only</strong> for the optional update check; <strong>no</strong> camera or storage permissions. Receipt photos are added only when you use the <strong>system camera or photo picker</strong>.</li>
+  <li><strong>Group Matters:</strong> Same as Easy Ledger—the internal signature permission; newer releases that declare Internet use it <strong>only</strong> for the optional update check; no camera.</li>
   <li><strong>C Week:</strong> That internal permission plus <strong>“view network connections”</strong> from the built-in <strong>video player library</strong>, so the player can tell whether the device is online. The app <strong>does not go online</strong> or upload your learning data. Lessons and videos ship inside the install package.</li>
 </ul>
 <h3>Children</h3>
